@@ -1,0 +1,7 @@
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+.kitchen/
+Gemfile.lock
+*.log
+.vagrant/

@@ -1,0 +1,35 @@
+---
+driver:
+  name: terraform
+  variable_files:
+    - my-variables.tfvars
+
+provisioner:
+  name: terraform
+
+transport:
+  name: ssh
+  ssh_key: ~/.ssh/lm3corp.pem
+  username: ubuntu
+  port: 22
+
+verifier:
+  name: terraform
+  format: doc
+  systems:
+    - name: rabbitmq-server
+      backend: ssh
+      key_files:
+        - ~/.ssh/lm3corp.pem
+      controls:
+        - operating_system
+        - base_packages
+        - rabbitmq_system
+      hosts_output: rabbitmq_servers_dns
+      user: ubuntu
+
+platforms:
+  - name: ubuntu
+
+suites:
+  - name: default
