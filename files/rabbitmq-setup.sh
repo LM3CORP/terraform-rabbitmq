@@ -4,5 +4,5 @@ echo "deb https://dl.bintray.com/rabbitmq-erlang/debian xenial main" | sudo tee 
 sudo apt-get update -y
 sudo apt-get install rabbitmq-server -y
 sudo service rabbitmq-server start
-rabbitmq-plugins enable rabbitmq_management
+sudo rabbitmq-plugins enable rabbitmq_management
 
